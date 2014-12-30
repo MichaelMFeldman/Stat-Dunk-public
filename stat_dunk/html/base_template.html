@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% block header %}
+  {% load static %}
+  <head>
+    <title>{% block title %}Stat Dunk{% endblock title %}</title>
+   
+    {% block css %}
+    <link rel="stylesheet" href="{% static "bootstrap.min.css" %}" media="all" charset="utf-8">
+    <link rel="stylesheet" href="{% static "jquery-ui.min.css" %}">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,800,600,400' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Changa+One' rel='stylesheet'>
+    {% block main_css %}
+    {% endblock main_css %}
+    {% endblock css %}
+    {% block extra_css %}
+    {% endblock extra_css %}
+
+    {% block javascript %}
+    <script src="{% static "jquery-1.11.1.min.js" %}"></script>
+    <script src="{% static "jquery-ui.min.js" %}"></script>
+    <script src="{% static "bootstrap.min.js" %}"></script>
+    {% endblock javascript %}
+
+    {% block extra_javascript %}
+    {% endblock extra_javascript %}
+  </head>
+  {% endblock header %}
+{% block body %}
+
+<body >    
+  <div id="wrap">
+    <div class="content container">
+        {% block content %}
+        <p>Hello</p>
+        {% endblock content %}
+    </div>
+  </div>
+</body>
+{% endblock body %}
+{% block footer %} 
+{% endblock footer %}
+{% block modals %}
+{% endblock modals %}
+</html>

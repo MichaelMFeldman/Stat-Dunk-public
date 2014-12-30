@@ -1,0 +1,99 @@
+{% extends "base_template.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static "questionbuilder.css" %}" media="all" charset="utf-8">
+{% endblock extra_css %}
+
+{% block extra_javascript %}
+<script src="{% static "questionbuilder.js" %}"></script>
+{% endblock extra_javascript %}
+
+{% block content %}
+<!-- #popup-container, #background-darkener are invisible:
+     These are made visible when open_pop_up() is called. -->
+<div id="popup-container">
+    <div id="popup">
+        <button id="close-button" type="button" class="btn btn-default">Close</button>
+        <div id="popup-content"></div>
+    </div>
+</div>
+<div id="background-darkener"></div>
+
+<div class="container">
+    <input id="teams" type="text" class="form-control" placeholder="Choose school">
+    <h1 id="team-name"></h1>
+    <div style="margin-bottom: 15px">
+        <h1 style="display: inline">Question Builder</h1>
+        <button id="calc-button"         type="button" class="btn btn-default">Calculate!</button>
+        <button id="reset-button"        type="button" class="btn btn-default">Reset</button>
+        <button id="instructions-button" type="button" class="btn btn-default">Instructions</button>
+    </div>
+    <div id="questionbuilder" class="row">
+        <div id="parameter-area" class="col-xs-8">
+            <table>
+                <colgroup>
+                    <col style="width:1%; white-space:nowrap;">
+                </colgroup>
+                <tr>
+                    <td><p class="clickable-title">Games:</p></td>
+                    <td>
+                        <div id="games-clickable" class="parameter-clickable">
+                            <p class="popup-title-text">Select a school first!</p>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><p class="clickable-title">On&nbsp;court:</p></td>
+                    <td>
+                        <div id="on-court-clickable" class="parameter-clickable">
+                            <p class="popup-title-text">Select a school first!</p>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><p class="clickable-title">Off&nbsp;court:</p></td>
+                    <td>
+                        <div id="off-court-clickable" class="parameter-clickable">
+                            <p class="popup-title-text">Select a school first!</p>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><p class="clickable-title">Making&nbsp;actions:</p></td>
+                    <td>
+                        <div id="making-actions-clickable" class="parameter-clickable">
+                           <p class="popup-title-text">Select a school first!</p>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><p class="clickable-title">Not&nbsp;making&nbsp;actions:</p></td>
+                    <td>
+                        <div id="not-making-actions-clickable" class="parameter-clickable">
+                            <p class="popup-title-text">Select a school first!</p>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-xs-4">
+            <p id="stats-clickable-title" class="clickable-title">Statistics:</p>
+            <div id="stat-clickable" class="parameter-clickable">
+                <p class="popup-title-text">Statistics</p>
+                <p class="param" data-stat="EFG">Effective Field Goal %</p>
+                <p class="param" data-stat="TSperc">True Shooting %</p>
+                <p class="param" data-stat="TOrate">Turnover rate</p>
+                <p class="param" data-stat="ASTTOVratio">Assist/Turnover ratio</p>
+                <p class="param" data-stat="ASTrate">Assist rate</p>
+                <p class="param" data-stat="Orebrate">Offensive Rebound rate</p>
+                <p class="param" data-stat="Drebrate">Defensive Rebound rate</p>
+                <p class="param" data-stat="Ortg">Offensive rating</p>
+                <p class="param" data-stat="Drtg">Defensive rating</p>
+                <!--<p class="param" data-stat="Custom" data-main-stat="abc" data-per-what="xyz">Custom</p>-->
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
